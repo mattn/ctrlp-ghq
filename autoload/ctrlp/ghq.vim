@@ -20,7 +20,7 @@ else
   let g:ctrlp_ext_vars = [s:ghq_var]
 endif
 
-let s:root = substitute(system('git config --path --get-all ghq.root'), '\n.*', '', '')
+let s:root = join(split(system('git config --path --get-all ghq.root'), "\n"), ',')
 let s:ghq_command = get(g:, 'ctrlp_ghq_command', 'ghq')
 
 if empty(s:root)
@@ -33,7 +33,7 @@ endfunc
 
 function! ctrlp#ghq#accept(mode, str)
   call ctrlp#exit()
-  exe 'lcd' fnamemodify(s:root . '/' . a:str, 'p')
+  exe 'lcd' fnamemodify(finddir(a:str, s:root), 'p')
 endfunction
 
 function! ctrlp#ghq#exit()

@@ -21,12 +21,14 @@ else
 endif
 
 let s:root = substitute(system('git config --path --get-all ghq.root'), '\n.*', '', '')
+let s:ghq_command = get(g:, 'ctrlp_ghq_command', 'ghq')
+
 if empty(s:root)
 	let s:root = expand('~/.ghq')
 endif
 
 function! ctrlp#ghq#init()
-  return split(system('ghq list'), '\n')
+  return split(system(printf('%s list', s:ghq_command)), '\n')
 endfunc
 
 function! ctrlp#ghq#accept(mode, str)

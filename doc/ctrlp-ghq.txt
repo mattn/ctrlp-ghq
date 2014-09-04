@@ -1,0 +1,55 @@
+*ctrlp-ghq.txt* CtrlP Extension for ghq
+
+==============================================================================
+CONTENTS                                                    *ctrlp-ghq-contents*
+
+  1. Introduction..................................|ctrlp-ghq-introduction|
+  2. Installation..................................|ctrlp-ghq-installation|
+  2. Usage.........................................|ctrlp-ghq-usage|
+  3. Customize.....................................|ctrlp-ghq-customize|
+
+==============================================================================
+INTRODUCTION                                            *ctrlp-ghq-introduction*
+
+'ghq' is a command line utility that is very useful to manage remote
+repository clones (Git or Mercurial).
+This is a vim plugin to use ghq from vim.
+
+==============================================================================
+INSTALLATION                                            *ctrlp-ghq-installation*
+
+You can install 'ghq' command by following command: >
+
+    $ go get github.com/motemen/ghq
+<
+And this plugins should work well with pathgen or Vundler command. So you will
+clone this plugin's repository into your '~/.vim/bundle' directory.
+
+==============================================================================
+USAGE                                                          *ctrlp-ghq-usage*
+
+You can open CtrlP extension buffer by: >
+
+    :CtrlPGht
+<
+If may add map into your vimrc like below: >
+
+    noremap <leader>g :<c-u>CtrlPGhq<cr>
+<
+==============================================================================
+CUSTOMIZE                                                  *ctrlp-ghq-customize*
+
+When you want to do custom action for the selected line, you can do it with
+<c-a> key. It require following configuration: >
+
+    let g:ctrlp_ghq_actions = [
+    \ {"label": "Open", "action": "e", "path": 1},
+    \ {"label": "Look", "action": "!ghq look", "path": 0},
+    \]
+
+'label' is used for displaying menu. 'action' is used for prefix string of
+command to be called. 'path' is used for checking whether the argument should
+be full-path(1) or selected string(0). 
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:

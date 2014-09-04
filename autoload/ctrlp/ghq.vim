@@ -33,7 +33,7 @@ endfunc
 
 function! ctrlp#ghq#accept(mode, str)
   call ctrlp#exit()
-  exe 'lcd' fnamemodify(finddir(a:str, s:root), 'p')
+  exe 'lcd' get(map(filter(split(globpath(s:root, a:str), '\n'), 'isdirectory(v:val)'), 'fnamemodify(v:val, "p")'), 0, '')
 endfunction
 
 function! ctrlp#ghq#exit()

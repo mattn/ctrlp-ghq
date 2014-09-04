@@ -32,6 +32,14 @@ let g:ctrlp_ghq_actions = [
 command to be called. `path` is used for checking whether the argument should
 be full-path(1) or selected string(0). 
 
+You can change default action by following configuration:
+
+```vim
+let ctrlp_ghq_default_action = 'e'
+```
+
+If you don't set this, default action will do `lcd`.
+
 ## License
 
 MIT

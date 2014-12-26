@@ -30,7 +30,7 @@ let g:ctrlp_ghq_actions = [
 
 `label` is used for displaying menu. `action` is used for prefix string of
 command to be called. `path` is used for checking whether the argument should
-be full-path(1) or selected string(0). 
+be full-path(1) or selected string(0).
 
 You can change default action by following configuration:
 
@@ -39,6 +39,14 @@ let ctrlp_ghq_default_action = 'e'
 ```
 
 If you don't set this, default action will do `lcd`.
+
+You can enable cache function which stores repositories into cache file.
+
+```vim
+let g:ctrlp_ghq_cache_enabled = 1
+```
+
+* Press `<F5>` to purge the cache for the repositories under the `ghq.root` directory.
 
 ## License
 

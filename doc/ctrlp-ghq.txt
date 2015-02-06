@@ -30,7 +30,7 @@ USAGE                                                          *ctrlp-ghq-usage*
 
 You can open CtrlP extension buffer by: >
 
-    :CtrlPGht
+    :CtrlPGhq
 <
 If may add map into your vimrc like below: >
 

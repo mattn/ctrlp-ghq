@@ -77,6 +77,7 @@ function! ctrlp#ghq#reload()
     let s:root = s:get_root()
   endif
   let s:repos = s:get_repos()
+  call ctrlp#setlines()
 endfunction
 
 function! s:init()

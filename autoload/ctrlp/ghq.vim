@@ -63,6 +63,7 @@ function! ctrlp#ghq#accept(mode, str)
     let path = get(act, 'path', 1) ? path : a:str
   endif
   exe action path
+  doautoall BufEnter
 endfunction
 
 function! ctrlp#ghq#exit()

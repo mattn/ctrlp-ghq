@@ -120,11 +120,7 @@ function! s:validate(lines)
 endfunction
 
 function! s:get_root()
-  let root = join(split(system('git config --path --get-all ghq.root'), "\n"), ',')
-  if empty(root)
-    let root = expand('~/.ghq')
-  endif
-  return root
+  return join(split(system('ghq root --all'), "\n"), ',')
 endfunction
 
 function! s:get_repos()
